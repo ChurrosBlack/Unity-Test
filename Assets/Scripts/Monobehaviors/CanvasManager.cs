@@ -6,6 +6,7 @@ public class CanvasManager : MonoBehaviour
     public TextMeshProUGUI score;
     public TextMeshProUGUI moves;
     public GameObject gameOverCanvas;
+    public GameObject gridLayout;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,5 +39,14 @@ public class CanvasManager : MonoBehaviour
     void OnGameOver()
     {
         gameOverCanvas.SetActive(true);
+    }
+
+
+    // Here I would start intantiating based on GameManagers dictionary, all prefabs of the cubes
+    // Unfortunatelly I lost quite a few time handling memory problems on my personal machine which took
+    // me quite the time
+    void Instantiate()
+    {
+        
     }
 }

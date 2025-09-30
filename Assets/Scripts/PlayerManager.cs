@@ -1,5 +1,6 @@
 using System;
-using UnityEngine.Animations;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerManager
 {
@@ -14,7 +15,20 @@ public class PlayerManager
     public Action<int, int> ResetUpdate;
     public Action OnGameOver;
 
+    public List<BLOCK_TYPE> blockSequence;
+
     private PlayerManager() { } // Private constructor prevents external instantiation
+
+    public void GenerateRandomSequence(int length)
+    {
+        blockSequence.Clear();
+
+        for (int i = 0; i < length; i++)
+        {
+            BLOCK_TYPE randomBlock = (BLOCK_TYPE)UnityEngine.Random.Range(0, System.Enum.GetValues(typeof(BLOCK_TYPE)).Length);
+            blockSequence.Add(randomBlock);
+        }
+    }
 
     public void AddScore(int amount)
     {
